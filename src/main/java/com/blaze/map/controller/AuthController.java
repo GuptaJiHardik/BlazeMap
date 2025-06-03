@@ -1,28 +1,28 @@
 package com.blaze.map.controller;
 
-
-import com.blaze.map.dto.LoginRequest;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.blaze.map.dto.AuthRequest;
+import com.blaze.map.dto.AuthResponse;
+import com.blaze.map.dto.RegisterRequest;
+import com.blaze.map.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
-@RequiredArgsConstructor
+@RequestMapping("/auth")
 public class AuthController {
 
-    private final AuthService authService;
+    @Autowired
+    private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
+    public String register(@RequestBody RegisterRequest request) {
         authService.register(request);
-        return ResponseEntity.ok("User registered");
+        return "User registered successfully!";
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(authService.login(request));
+    public AuthResponse login(@RequestBody AuthRequest request) {
+        String token = authService.authenticate(request);
+        return new AuthResponse(token);
     }
 }

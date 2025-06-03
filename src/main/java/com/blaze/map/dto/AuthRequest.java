@@ -3,7 +3,7 @@ package com.blaze.map.dto;
 import lombok.Data;
 
 @Data
-public class LoginRequest {
-    private String email;
+public class AuthRequest {
+    private String username;
     private String password;
 }
