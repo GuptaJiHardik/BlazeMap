@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+# Local environment file
+.env
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -32,7 +34,7 @@ build/
 
 ### VS Code ###
 .vscode/
-=======
+
 # Compiled class file
 *.class
 
@@ -54,7 +56,6 @@ build/
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Virtual machine crash logs
 hs_err_pid*
 replay_pid*
->>>>>>> 092c11e8f53a30e7e237091d52659198deeea271
