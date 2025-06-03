@@ -27,7 +27,7 @@ public class AuthService {
 
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public void register(RegisterRequest req) {
+    public String register(RegisterRequest req) {
         User user = User.builder()
                 .username(req.getUsername())
                 .email(req.getEmail())
@@ -35,6 +35,7 @@ public class AuthService {
                 .enabled(true)
                 .build();
         userRepository.save(user);
+        return jwtService.generateToken(user.getUsername());
     }
 
     public String authenticate(AuthRequest req) {

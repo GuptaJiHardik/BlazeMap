@@ -21,7 +21,7 @@ public class BlazeMapApplication {
 
 		System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
 		System.setProperty("JWT_EXPIRATION", dotenv.get("JWT_EXPIRATION"));
-		System.setProperty("SERVER_PORT", dotenv.get("SERVER_PORT"));
+
 		SpringApplication.run(BlazeMapApplication.class, args);
 
 	}

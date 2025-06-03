@@ -15,9 +15,9 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public String register(@RequestBody RegisterRequest request) {
-        authService.register(request);
-        return "User registered successfully!";
+    public AuthResponse register(@RequestBody RegisterRequest request) {
+        String token = authService.register(request);
+        return new AuthResponse(token);
     }
 
     @PostMapping("/login")
