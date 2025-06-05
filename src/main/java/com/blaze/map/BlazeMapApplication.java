@@ -21,6 +21,12 @@ public class BlazeMapApplication {
 
 		System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
 		System.setProperty("JWT_EXPIRATION", dotenv.get("JWT_EXPIRATION"));
+		System.setProperty("TWITTER_BEARER_TOKEN", dotenv.get("TWITTER_BEARER_TOKEN"));
+		System.setProperty("NEWS_API_KEY", dotenv.get("NEWS_API_KEY"));
+//		System.setProperty("REDDIT_CLIENT_ID", dotenv.get("REDDIT_CLIENT_ID"));
+//		System.setProperty("REDDIT_CLIENT_SECRET", dotenv.get("REDDIT_CLIENT_SECRET"));
+//		System.setProperty("REDDIT_USERNAME", dotenv.get("REDDIT_USERNAME"));
+//		System.setProperty("REDDIT_PASSWORD", dotenv.get("REDDIT_PASSWORD"));
 
 		SpringApplication.run(BlazeMapApplication.class, args);
 
