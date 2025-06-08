@@ -51,11 +51,16 @@ public class TwitterPollingService {
                             .fetchedAt(LocalDateTime.now())
                             .build();
                     sourceFeedRepository.save(feed);
+                } else {
+                    System.err.println("Twitter API returned non-200 for \"" + keyword + "\": " + response.getStatusCode());
                 }
+
+                Thread.sleep(15 * 60 * 1001); // 15 min delay
+
             } catch (Exception e) {
-                // Log and continue
                 System.err.println("Error fetching tweets for \"" + keyword + "\": " + e.getMessage());
             }
         }
     }
+
 }
